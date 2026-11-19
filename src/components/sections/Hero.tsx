@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
@@ -57,63 +58,21 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Hero artwork */}
-      <div className="relative isolate flex h-[480px] items-center justify-center overflow-hidden border-y border-black/5 bg-[radial-gradient(ellipse_at_50%_48%,#dcecb9_0%,#b8d58f_30%,#90ad71_58%,#dce3d3_100%)] max-[768px]:h-[340px] max-[650px]:h-[330px]">
-        {/* Texture */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:radial-gradient(#171815_0.7px,transparent_0.7px)] [background-size:4px_4px]" />
+{/* Hero artwork */}
+<div className="relative mt-0 w-full overflow-hidden border-y border-black/5 bg-[#eeede6]">
+  <picture className="block w-full">
+    <source
+      media="(max-width: 767px)"
+      srcSet="/images/brands/metacap-hero-mobile.png"
+    />
 
-        {/* Elliptical artwork rings */}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[780px] w-[780px] -translate-x-1/2 -translate-y-1/2 rotate-[34deg] scale-y-[0.48] rounded-full border border-[#ffffff70]" />
-
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rotate-[-32deg] scale-y-[0.42] rounded-full border border-[#ffffff45]" />
-
-        {/* Top captions */}
-        <div className="absolute left-7 top-[27px] z-10 font-mono text-[10px] leading-4 tracking-[0.8px] text-[#777970] max-[768px]:left-[15px] max-[768px]:top-[15px] max-[768px]:text-[7px]">
-          A GOOD IDEA
-          <br />
-          DESERVES GOOD EXECUTION.
-        </div>
-
-        <div className="absolute right-7 top-[27px] z-10 text-right font-mono text-[10px] leading-4 tracking-[0.8px] text-[#777970] max-[768px]:right-[15px] max-[768px]:top-[15px] max-[768px]:text-[7px]">
-          METACAP / DIGITAL SYSTEMS
-          <br />
-          FIELD NOTES 001
-        </div>
-
-        {/* Sculpture */}
-        <div className="relative flex aspect-square w-[310px] items-center justify-center max-[768px]:w-[230px]">
-          {/* Disc 1 */}
-          <div className="absolute inset-[5%] rounded-full border border-[#f9fff0a8] bg-[radial-gradient(circle_at_35%_28%,#faffdfcc,#c4df8c80_38%,#779a5d_75%)] shadow-[inset_-22px_-25px_40px_#55744444,0_25px_55px_#6e8c4c44]" />
-
-          {/* Disc 2 */}
-          <div className="absolute inset-[15%] rotate-[55deg] rounded-full border border-[#f9fff0a8] bg-[linear-gradient(110deg,#ffffff75,#829f5a35_40%,transparent_65%)] shadow-[0_0_35px_#5b78451c,inset_0_0_45px_#ffffff35]" />
-
-          {/* Disc 3 */}
-          <div className="absolute inset-[25%] rotate-[-42deg] rounded-full border border-[#ffffffd6] bg-[#dcebbd66] shadow-[0_0_35px_#5b78451c,inset_0_0_45px_#ffffff35]" />
-
-          {/* Center mark */}
-          <div className="relative z-[2] flex h-24 w-24 items-center justify-center rounded-full bg-[#244b3b] font-display text-4xl font-extrabold tracking-[-3px] text-[#f5f4ef] shadow-[0_15px_50px_rgba(36,75,59,0.18)] md:h-32 md:w-32 md:text-5xl">
-            M
-            <span className="absolute right-5 top-5 font-mono text-sm font-normal tracking-normal md:right-7 md:top-7 md:text-base">
-              ↗
-            </span>
-          </div>
-
-          {/* Cross detail */}
-          <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-[#244b3b]/20" />
-          <div className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-[#244b3b]/20" />
-        </div>
-
-        {/* Bottom captions */}
-        <div className="absolute bottom-[21px] left-[25px] right-[25px] z-10 flex flex-col gap-2 font-mono text-[9px] tracking-[0.8px] text-[#777970] md:bottom-8 md:left-8 md:right-8 md:flex-row md:items-center md:justify-between max-[768px]:text-[6px]">
-          <span>IDEA → EXPERIENCE → IMPACT</span>
-          <span className="md:text-right max-[768px]:hidden">
-            DESIGNED TO MOVE BUSINESS FORWARD
-          </span>
-        </div>
-      </div>
-
-
+    <img
+      src="/images/brands/metacap-hero-desktop.png"
+      alt="Metacap digital landscape"
+      className="block aspect-[2.35/1] w-full object-cover object-center max-[767px]:aspect-square"
+    />
+  </picture>
+</div>
     </section>
   );
 }

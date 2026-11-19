@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Selected Work", href: "#selected" },
@@ -48,7 +49,13 @@ export default function Navbar() {
           onClick={closeMenu}
           className="font-display text-[25px] font-extrabold tracking-[-1.5px] transition-opacity duration-300 hover:opacity-60"
         >
-          METACAP
+          <Image
+            src="/images/brands/metacap-logo.png"
+            alt="Metacap Technology"
+            width={140}
+            height={100}
+            priority
+            />
         </a>
 
         {/* Desktop navigation */}
