@@ -1,7 +1,47 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-
+import localFont from "next/font/local";
 import "./globals.css";
+
+/* ================================
+   LOCAL FONTS
+================================ */
+
+// DM Sans — body text
+const dmSans = localFont({
+  src: "./fonts/DMSans-VariableFont_opsz,wght.ttf",
+  variable: "--dm-sans",
+  display: "swap",
+});
+
+// Manrope — headings (ExtraBold 800)
+const manrope = localFont({
+  src: "./fonts/Manrope-VariableFont_wght.ttf",
+  variable: "--manrope",
+  display: "swap",
+  weight: "200 800",
+});
+
+// Playfair Display — italic accent text
+const playfair = localFont({
+  src: "./fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf",
+  variable: "--playfair-italic",
+  display: "swap",
+  style: "italic",
+  weight: "400 900",
+});
+
+// Space Mono — metadata, labels, numbers
+const spaceMono = localFont({
+  src: "./fonts/SpaceMono-Regular.ttf",
+  variable: "--space-mono",
+  display: "swap",
+  weight: "400",
+});
+
+/* ================================
+   METADATA
+================================ */
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://metacap.technology"),
@@ -36,6 +76,10 @@ export const metadata: Metadata = {
   },
 };
 
+/* ================================
+   ROOT LAYOUT
+================================ */
+
 export default function RootLayout({
   children,
 }: {
@@ -43,7 +87,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        className={`${dmSans.variable} ${manrope.variable} ${playfair.variable} ${spaceMono.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

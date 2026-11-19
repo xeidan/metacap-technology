@@ -26,50 +26,85 @@ const capabilities = [
 
 export default function Services() {
   return (
-    <section className="capabilities" id="capabilities">
-      <div className="section-top">
-        <div>
-          <span className="section-index">03 / CAPABILITIES</span>
+    <section
+      id="capabilities"
+      className="bg-[#f5f4ef] px-6 py-16 text-[#171815] md:px-12 md:py-20 lg:px-[7%]"
+    >
+      <div className="mx-auto w-full">
+        {/* Header */}
+        <header className="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-7">
+            <span className="mb-5 block font-mono text-[9px] tracking-[1.1px] text-[#85877d]">
+              03 / CAPABILITIES
+            </span>
 
-          <h2>
-            From idea
-            <br />
-            to <em>reality.</em>
-          </h2>
-        </div>
+            <h2 className="font-display text-[clamp(3.4rem,7.2vw,7.5rem)] font-medium leading-[0.86] tracking-[-0.075em]">
+              From idea
+              <br />
+              to{" "}
+              <em className="font-serif text-[#68816b]">
+                reality.
+              </em>
+            </h2>
+          </div>
 
-        <p>
-          We design, build, and maintain digital products for businesses
-          that want to move forward.
-        </p>
-      </div>
+          <p className="max-w-[340px] text-[13px] leading-[1.8] text-[#777970] md:col-span-4 md:col-start-9 md:ml-auto md:pb-1 md:text-[14px]">
+            We design, build, and maintain digital products for businesses
+            that want to move forward.
+          </p>
+        </header>
 
-      <div className="cap-list">
-        {capabilities.map(({ n, title, sub, desc, icon: Icon }) => (
-          <article className="cap-item" key={n}>
-            <span className="cap-number">{n}</span>
+        {/* Services */}
+        <div className="mt-12 border-t border-[#dedfd7] md:mt-16">
+          {capabilities.map(({ n, title, sub, desc, icon: Icon }) => (
+            <article
+              key={n}
+              className="group grid grid-cols-12 items-start gap-3 border-b border-[#dedfd7] py-6 transition-colors duration-300 hover:bg-[#eeede6]/50 md:items-center md:py-8"
+            >
+              {/* Number */}
+              <span className="col-span-1 pt-1 font-mono text-[9px] tracking-wide text-[#96988e]">
+                {n}
+              </span>
 
-            <div className="cap-icon">
-              <Icon size={21} strokeWidth={1.4} />
-            </div>
-
-            <div className="cap-main">
-              <div className="cap-heading">
-                <h3>{title}</h3>
-                <span>{sub}</span>
+              {/* Icon */}
+              <div className="col-span-2 flex h-10 w-10 items-center justify-center rounded-full border border-[#d8dbd0] text-[#718967] transition-all duration-300 group-hover:border-[#244b3b] group-hover:bg-[#244b3b] group-hover:text-[#f5f4ef] md:col-span-1 md:h-11 md:w-11">
+                <Icon size={18} strokeWidth={1.35} />
               </div>
 
-              <p>{desc}</p>
-            </div>
+              {/* Content */}
+              <div className="col-span-9 md:col-span-6 md:col-start-3">
+                <div className="flex flex-col gap-1.5 md:flex-row md:items-baseline md:gap-5">
+                  <h3 className="font-display text-[23px] font-medium tracking-[-0.055em] text-[#171815] transition-colors duration-300 group-hover:text-[#58745a] md:text-[27px] lg:text-[32px]">
+                    {title}
+                  </h3>
 
-            <ArrowUpRight className="cap-arrow" size={19} />
-          </article>
-        ))}
-      </div>
+                  <span className="font-mono text-[9px] tracking-[0.15px] text-[#8b8d83] md:text-[9px]">
+                    {sub}
+                  </span>
+                </div>
 
-      <div className="cap-foot">
-        <span>BUILT FOR BUSINESS</span>
-        <span>DESIGN / DEVELOPMENT / SUPPORT</span>
+                <p className="mt-2.5 max-w-[570px] text-[12px] leading-[1.75] text-[#777970] md:mt-3 md:text-[13px] md:leading-[1.8]">
+                  {desc}
+                </p>
+              </div>
+
+              {/* Arrow */}
+              <div className="col-span-12 flex justify-end md:col-span-1 md:col-start-12">
+                <ArrowUpRight
+                  size={18}
+                  strokeWidth={1.4}
+                  className="text-[#7e8976] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#244b3b]"
+                />
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <footer className="mt-6 flex flex-col gap-2.5 font-mono text-[8px] tracking-[1px] text-[#898b81] sm:flex-row sm:items-center sm:justify-between md:mt-9">
+          <span>BUILT FOR BUSINESS</span>
+          <span>DESIGN / DEVELOPMENT / SUPPORT</span>
+        </footer>
       </div>
     </section>
   );
