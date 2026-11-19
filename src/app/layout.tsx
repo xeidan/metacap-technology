@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
@@ -14,7 +15,7 @@ const dmSans = localFont({
   display: "swap",
 });
 
-// Manrope — headings (ExtraBold 800)
+// Manrope — headings
 const manrope = localFont({
   src: "./fonts/Manrope-VariableFont_wght.ttf",
   variable: "--manrope",
@@ -40,39 +41,83 @@ const spaceMono = localFont({
 });
 
 /* ================================
-   METADATA
+   METADATA / SEO
 ================================ */
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://metacap.technology"),
 
   title: {
-    default: "Metacap Technology — We make digital work matter",
+    default: "Metacap Technology — We make ideas matter",
     template: "%s | Metacap Technology",
   },
 
   description:
-    "Metacap Technology designs, builds, and maintains digital products, websites, and software platforms for ambitious businesses.",
+    "Metacap Technology is an independent digital studio that designs, builds, and maintains digital products, websites, and software platforms for ambitious businesses.",
+
+  keywords: [
+    "Metacap Technology",
+    "digital studio",
+    "software development",
+    "web development",
+    "website design",
+    "digital products",
+    "software engineering",
+    "business websites",
+    "web applications",
+    "Abuja Nigeria",
+  ],
+
+  authors: [{ name: "Metacap Technology" }],
+  creator: "Metacap Technology",
+  publisher: "Metacap Technology",
+
+  alternates: {
+    canonical: "https://metacap.technology",
+  },
+
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 
   openGraph: {
-    title: "Metacap Technology — We make digital work matter",
+    title: "Metacap Technology — We make ideas matter",
     description:
       "We design, build, and maintain digital products that move businesses forward.",
     url: "https://metacap.technology",
     siteName: "Metacap Technology",
+    locale: "en_NG",
     type: "website",
+    images: [
+      {
+        url: "/images/brands/metacap-og.png",
+        width: 1536,
+        height: 1024,
+        alt: "Metacap Technology — We make ideas matter",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Metacap Technology",
+    title: "Metacap Technology — We make ideas matter",
     description:
       "We design, build, and maintain digital products that move businesses forward.",
+    images: ["/images/brands/metacap-og.png"],
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
