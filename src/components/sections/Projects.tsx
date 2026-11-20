@@ -104,7 +104,7 @@ export default function Projects() {
                     {/* Meta */}
                     <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3 font-mono text-[8px] tracking-[0.7px] text-[#85877d] md:text-[9px]">
                       <span>{project.id} / METACAP PRODUCT</span>
-                      <span className="text-right">{project.category}</span>
+
                     </div>
 
                     {/* Main copy */}
