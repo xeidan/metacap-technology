@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -5,11 +6,11 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
-  { name: "Selected Work", href: "#selected" },
-  { name: "Services", href: "#capabilities" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Blog", href: "#blog" },
-  { name: "About", href: "#studio" },
+  { name: "Selected Work", href: "/#selected" },
+  { name: "Services", href: "/#capabilities" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "Blog", href: "/blog" },
+  { name: "About", href: "/about" },
 ];
 
 export default function Navbar() {
@@ -42,7 +43,7 @@ export default function Navbar() {
       className="sticky top-0 z-50 w-full border-b border-black/[0.06] bg-[#f5f4ef]/95 text-[#171815] backdrop-blur-md"
     >
       {/* Main navbar */}
-      <div className="mx-auto flex h-[80px] w-full items-center justify-between px-6 md:px-12 lg:px-[7%]">
+      <div className="page-container flex h-[80px] items-center justify-between">
         {/* Brand */}
         <a
           href="/"
@@ -55,7 +56,7 @@ export default function Navbar() {
             width={140}
             height={100}
             priority
-            />
+          />
         </a>
 
         {/* Desktop navigation */}
@@ -77,7 +78,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <a
-          href="#contact"
+          href="/#contact"
           className="group hidden items-center gap-3 rounded-full bg-[#171815] py-2 pl-6 pr-2 font-sans text-[13px] font-medium transition-colors duration-300 hover:bg-[#244b3b] lg:inline-flex"
         >
           <span className="text-[#f5f4ef] transition-colors duration-300 group-hover:text-[#f5f4ef]">
@@ -119,7 +120,7 @@ export default function Navbar() {
         }`}
       >
         <div className="overflow-hidden">
-          <div className="border-t border-black/10 bg-[#171815] px-6 pb-6 pt-3 text-[#f5f4ef]">
+          <div className="border-t border-black/10 bg-[#171815] px-[var(--page-padding)] pb-6 pt-3 text-[#f5f4ef]">
             {/* Menu metadata */}
             <div className="flex items-center justify-between py-4 font-mono text-[11px] tracking-[1px] text-[#85877d]">
               <span>NAVIGATION</span>
@@ -146,9 +147,9 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Mobile CTA - rounded */}
+            {/* Mobile CTA */}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={closeMenu}
               className="group mt-5 flex items-center justify-between rounded-full bg-[#c3f36b] px-6 py-4 text-[#171815] transition-colors duration-300 hover:bg-[#d0fa85]"
             >

@@ -2,7 +2,10 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 import Hero from "@/components/sections/Hero";
-import LazySection from "@/components/sections/LazySection";
+import Services from "@/components/sections/Services";
+import Projects from "@/components/sections/Projects";
+import Process from "@/components/sections/Process";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -11,11 +14,10 @@ export default function Home() {
 
       <main>
         <Hero />
-
-        <LazySection section="services" />
-        <LazySection section="projects" />
-        <LazySection section="process" />
-        <LazySection section="contact" />
+        <Services />
+        <Projects />
+        <Process />
+        <Contact />
       </main>
 
       <Footer />

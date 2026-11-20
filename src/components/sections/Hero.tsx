@@ -1,11 +1,12 @@
+
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="w-full overflow-hidden px-[var(--page-padding)] pt-[34px] pb-[70px] max-[768px]:pt-6 max-[768px]:pb-[50px]">
+    <section className="w-full overflow-hidden pt-[34px] pb-[70px] max-[768px]:pt-6 max-[768px]:pb-[50px]">
       {/* Top information rail */}
-      <div className="flex animate-[heroFadeUp_0.7s_ease_both] items-center justify-between gap-5 font-mono text-[10px] tracking-[1px] text-[#777b72] max-[768px]:text-[9px]">
+      <div className="page-container flex animate-[heroFadeUp_0.7s_ease_both] items-center justify-between gap-5 font-mono text-[10px] tracking-[1px] text-[#777b72] max-[768px]:text-[9px]">
         <span>INDEPENDENT DIGITAL STUDIO</span>
 
         <span className="max-[768px]:hidden">
@@ -16,7 +17,7 @@ export default function Hero() {
       </div>
 
       {/* Main hero */}
-      <div className="grid grid-cols-[minmax(0,1fr)_290px] items-end gap-10 pt-[75px] pb-[65px] max-[1100px]:grid-cols-[minmax(0,1fr)_250px] max-[1100px]:gap-[35px] max-[768px]:grid-cols-1 max-[768px]:items-start max-[768px]:gap-[38px] max-[768px]:pt-[85px] max-[768px]:pb-[60px] max-[480px]:pt-[72px] max-[480px]:gap-8">
+      <div className="page-container grid grid-cols-[minmax(0,1fr)_290px] items-end gap-10 pt-[75px] pb-[65px] max-[1100px]:grid-cols-[minmax(0,1fr)_250px] max-[1100px]:gap-[35px] max-[768px]:grid-cols-1 max-[768px]:items-start max-[768px]:gap-[38px] max-[768px]:pt-[85px] max-[768px]:pb-[60px] max-[480px]:pt-[72px] max-[480px]:gap-8">
         {/* Heading */}
         <div className="min-w-0">
           <div className="mb-[30px] flex animate-[heroFadeUp_0.7s_ease_both] items-center gap-[13px] font-mono text-[10px] tracking-[1px] text-[#777b72] max-[768px]:mb-[26px] max-[768px]:text-[9px] max-[480px]:tracking-[0.8px]">
@@ -58,21 +59,24 @@ export default function Hero() {
         </div>
       </div>
 
-{/* Hero artwork */}
-<div className="relative mt-0 w-full overflow-hidden border-y border-black/5 bg-[#eeede6]">
-  <picture className="block w-full">
-    <source
-      media="(max-width: 767px)"
-      srcSet="/images/brands/metacap-hero-mobile.png"
-    />
+      {/* Hero artwork — full bleed */}
+      <div className="relative mt-0 w-full overflow-hidden border-y border-black/5 bg-[#eeede6]">
+        <picture className="block w-full">
+          <source
+            media="(max-width: 767px)"
+            srcSet="/images/brands/metacap-hero-mobile.png"
+          />
 
-    <img
-      src="/images/brands/metacap-hero-desktop.png"
-      alt="Metacap digital landscape"
-      className="block aspect-[2.35/1] w-full object-cover object-center max-[767px]:aspect-square"
-    />
-  </picture>
-</div>
+          <Image
+            src="/images/brands/metacap-hero-desktop.png"
+            alt="Metacap digital landscape"
+            width={2400}
+            height={1024}
+            priority
+            className="block aspect-[2.35/1] w-full object-cover object-center max-[767px]:aspect-square"
+          />
+        </picture>
+      </div>
     </section>
   );
 }

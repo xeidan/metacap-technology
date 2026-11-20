@@ -1,16 +1,53 @@
-import { ArrowUpRight } from "lucide-react";
+
+import {
+  ArrowUpRight,
+  Facebook,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
 const footerLinks = [
-  { label: "Services", href: "#capabilities" },
-  { label: "Selected work", href: "#selected" },
-  { label: "Our method", href: "#method" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#capabilities" },
+  { label: "Selected work", href: "/#selected" },
+  { label: "Our method", href: "/#method" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/",
+    icon: Linkedin,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/",
+    icon: Instagram,
+  },
+  {
+    label: "X",
+    href: "https://x.com/",
+    icon: null,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/",
+    icon: Facebook,
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/",
+    icon: null,
+  },
 ];
 
 export default function Footer() {
   return (
     <footer id="footer" className="bg-[#171815] text-[#f5f4ef]">
-      <div className="mx-auto w-full px-6 pb-6 pt-12 md:px-12 md:pt-16 lg:px-[7%]">
+      <div className="page-container pb-6 pt-12 md:pt-16">
         {/* Brand */}
         <div className="flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-end md:justify-between md:pb-12">
           <div>
@@ -27,7 +64,7 @@ export default function Footer() {
           </div>
 
           <a
-            href="#contact"
+            href="/#contact"
             className="group inline-flex w-fit items-center gap-3 font-sans text-xs text-[#f5f4ef] transition-colors duration-300 hover:text-[#c3f36b]"
           >
             Start a project
@@ -111,6 +148,55 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Socials */}
+        <div className="flex flex-col gap-5 border-b border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <span className="font-mono text-[9px] tracking-[1.2px] text-[#85877d]">
+            FOLLOW METACAP
+          </span>
+
+          <div className="flex items-center gap-3">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Metacap on ${social.label}`}
+                  title={social.label}
+                  className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-[#a0a398] transition-all duration-300 hover:border-[#c3f36b] hover:bg-[#c3f36b] hover:text-[#171815]"
+                >
+                  {social.label === "X" ? (
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-[15px] w-[15px] fill-current"
+                      aria-hidden="true"
+                    >
+                      <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.1l-4.8-6.3L6.8 22H3.6l7.3-8.4L1.9 2h6.2l4.4 5.8L18.9 2Zm-1.1 18h1.7L7.4 3.9H5.6L17.8 20Z" />
+                    </svg>
+                  ) : social.label === "TikTok" ? (
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-[17px] w-[17px] fill-current"
+                      aria-hidden="true"
+                    >
+                      <path d="M19.4 8.3a6.7 6.7 0 0 1-4-1.3v7.1a5.8 5.8 0 1 1-5.8-5.8c.4 0 .8 0 1.2.1v3.2a2.6 2.6 0 1 0 1.5 2.3V2h3.2a6.7 6.7 0 0 0 4.7 4.9v3.3a9.8 9.8 0 0 1-0.8-.1Z" />
+                    </svg>
+                  ) : Icon ? (
+                    <Icon
+                      size={16}
+                      strokeWidth={1.7}
+                      className="transition-transform duration-300 group-hover:scale-110"
+                    />
+                  ) : null}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div className="flex flex-col gap-3 pt-5 font-mono text-[9px] tracking-[0.4px] text-[#85877d] md:flex-row md:items-center md:justify-between">
           <p>
@@ -118,8 +204,8 @@ export default function Footer() {
           </p>
 
           <p className="md:text-right">
-            Registered in Nigeria <span className="mx-1 text-[#c3f36b]">·</span>{" "}
-            BN 7096516
+            Registered in Nigeria{" "}
+            <span className="mx-1 text-[#c3f36b]">·</span> BN 7096516
           </p>
         </div>
       </div>

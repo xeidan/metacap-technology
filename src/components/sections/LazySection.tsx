@@ -1,12 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
-
-const Services = dynamic(() => import("@/components/sections/Services"));
-const Projects = dynamic(() => import("@/components/sections/Projects"));
-const Process = dynamic(() => import("@/components/sections/Process"));
-const Contact = dynamic(() => import("@/components/sections/Contact"));
 
 type SectionName = "services" | "projects" | "process" | "contact";
 
@@ -14,38 +8,58 @@ export default function LazySection({
   section,
 }: {
   section: SectionName;
-}) {
+})  {
   const ref = useRef<HTMLDivElement>(null);
-  const [loaded, setLoaded] = useState(false);
+  const [Component, setComponent] = useState<React.ComponentType | null>(null);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
+    const loadSection = async () => {
+      switch (section) {
+        case "services":
+          const Services = (await import("./Services")).default;
+          setComponent(() => Services);
+          break;
+
+        case "projects":
+          const Projects = (await import("./Projects")).default;
+          setComponent(() => Projects);
+          break;
+
+        case "process":
+          const Process = (await import("./Process")).default;
+          setComponent(() => Process);
+          break;
+
+        case "contact":
+          const Contact = (await import("./Contact")).default;
+          setComponent(() => Contact);
+          break;
+      }
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setLoaded(true);
+          loadSection();
           observer.disconnect();
         }
       },
       {
-        rootMargin: "0px",
-        threshold: 0,
+        rootMargin: "300px",
       }
     );
 
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, []);
+  }, [section]);
 
   return (
-    <div ref={ref}>
-      {loaded && section === "services" && <Services />}
-      {loaded && section === "projects" && <Projects />}
-      {loaded && section === "process" && <Process />}
-      {loaded && section === "contact" && <Contact />}
+    <div ref={ref} className="min-h-[50px]">
+      {Component && <Component />}
     </div>
   );
 }
