@@ -91,10 +91,7 @@ export default function Projects() {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 transition-opacity duration-500 group-hover:from-black/20" />
 
-                {/* Category */}
-                <span className="absolute left-5 top-5 font-mono text-[9px] tracking-[0.8px] text-white/90 md:left-6 md:top-6">
-                    {project.category}
-                </span>
+
 
                 {/* Project number */}
                 <span className="absolute bottom-5 right-5 font-mono text-[9px] tracking-[0.8px] text-white/80 md:bottom-6 md:right-6">
