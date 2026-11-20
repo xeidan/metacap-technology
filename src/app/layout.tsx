@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/brands/metacap-og.png",
+        url: "/images/brands/metacapog.png",
         width: 1200,
         height: 630,
         alt: "Metacap Technology — We make ideas matter",
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
     title: "Metacap Technology — We make ideas matter",
     description:
       "We design, build, and maintain digital products that move businesses forward.",
-    images: ["/images/brands/metacap-og.png"],
+    images: ["/images/brands/metacapog.png"],
   },
 
   robots: {
