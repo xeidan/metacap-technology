@@ -51,7 +51,7 @@ export default function Navbar() {
           className="font-display text-[25px] font-extrabold tracking-[-1.5px] transition-opacity duration-300 hover:opacity-60"
         >
           <Image
-            src="/images/brands/metacap-logo.png"
+            src="/images/brands/logo.png"
             alt="Metacap Technology"
             width={140}
             height={100}
